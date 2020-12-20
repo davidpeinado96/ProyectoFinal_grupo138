@@ -74,6 +74,8 @@ exports.list = async (req, res, next) => {
 
 exports.update = async (req, res, next) => {
     try {
+
+        req.body.password = bcrypt.hashSync(req.body.password, 10);
         const registro = await models.Usuario.update({rol:req.body.rol ,nombre:req.body.nombre,password:req.body.password, email:req.body.email},
             {
                where:{

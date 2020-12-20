@@ -16,7 +16,7 @@ exports.list = async (req, res, next) => {
             res.status(200).json(registro);
         }else{
             res.status(404).send({
-                message: 'No hay categorías registradas'
+                message: 'No hay artículos registrados'
             })
         }
 
