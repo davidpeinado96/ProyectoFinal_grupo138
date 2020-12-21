@@ -67,7 +67,26 @@
                         label="Descripción"
                         auto-grow
                         no-resize
-                        counter="250"
+                      ></v-textarea>
+                    </v-col>
+                    <v-col
+                      cols="12"
+                    >
+                      <v-textarea
+                        v-model="editedItem.resumen"
+                        label="Resumen"
+                        auto-grow
+                        no-resize
+                      ></v-textarea>
+                    </v-col>
+                    <v-col
+                      cols="12"
+                    >
+                      <v-textarea
+                        v-model="editedItem.imagen"
+                        label="Imagen"
+                        auto-grow
+                        no-resize
                       ></v-textarea>
                     </v-col>
                      <v-col
@@ -178,6 +197,8 @@ export default {
       },
       { text: 'Código', value: 'codigo' },
       { text: 'Descripción', value: 'descripcion' },
+      { text: 'Resumen', value: 'resumen' },
+      { text: 'Imagen', value: 'imagen' },
       { text: 'Categoría', value: 'categoria.nombre' },
       { text: 'Estado', value: 'estado' },
       { text: 'Actions', value: 'actions', sortable: false },
@@ -190,6 +211,8 @@ export default {
       nombre: '',
       codigo: "",
       descripcion:"",
+      resumen:"",
+      imagen:"",
       estado: 1,
       categoria:{
         id:0,
@@ -200,6 +223,8 @@ export default {
       nombre: '',
       codigo: "",
       descripcion:"",
+      resumen:"",
+      imagen:"",
       estado: 0,
       categoria:{
         id:0,
@@ -312,6 +337,8 @@ export default {
           "id":this.editedItem.id,
           "nombre":this.editedItem.nombre,
           "descripcion":this.editedItem.descripcion,
+          "resumen":this.editedItem.resumen,
+          "imagen":this.editedItem.imagen,          
           "codigo":this.editedItem.codigo,
           "categoria": this.categoria.id
         }).then(response=>{
@@ -326,6 +353,8 @@ export default {
           "estado":this.editedItem.estado,
           "nombre":this.editedItem.nombre,
           "descripcion":this.editedItem.descripcion,
+          "resumen":this.editedItem.resumen,
+          "imagen":this.editedItem.imagen, 
           "codigo":this.editedItem.codigo,
           "categoriaId": this.categoria.id
         }).then(response=>{

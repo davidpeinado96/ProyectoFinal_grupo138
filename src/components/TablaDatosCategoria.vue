@@ -59,7 +59,6 @@
                         label="Descripción"
                         auto-grow
                         no-resize
-                        counter="250"
                       ></v-textarea>
                     </v-col>
                     <v-col
