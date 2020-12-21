@@ -1,5 +1,43 @@
 const models = require('../models');
 
+
+exports.listActive = async (req, res, next) => {
+    try {
+        const registro = await models.Articulo.findAll({
+
+
+            where: {
+
+                estado: 1
+            },
+            
+            
+            include:[
+                {
+                    model: models.Categoria,
+                    as: 'categoria',
+                    //attributes:["id","nombre","descripcion"]
+                }
+            ]
+            
+        });
+        // 200 indica que la respuesta fue correcta
+        if(registro){
+            res.status(200).json(registro);
+        }else{
+            res.status(404).send({
+                message: 'No hay artículos registrados'
+            })
+        }
+
+    } catch (error) {
+        res.status(500).send({
+            message: 'Error'
+        })
+        next(error)
+    }
+};
+
 exports.list = async (req, res, next) => {
     try {
         const registro = await models.Articulo.findAll({

@@ -11,7 +11,7 @@ router.post('/add',articuloController.add);
 router.put('/update',articuloController.update);
 router.put('/activate',articuloController.activate);
 router.put('/deactivate',articuloController.deactivate);
-
+router.get('/listActive',articuloController.listActive);
 
 
 module.exports = router;
