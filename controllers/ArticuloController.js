@@ -43,7 +43,7 @@ exports.add = async (req, res, next) => {
 
 exports.update = async (req, res, next) => {
     try {
-        const registro = await models.Articulo.update({codigo:req.body.codigo ,nombre:req.body.nombre,descripcion:req.body.descripcion, categoriaId:req.body.categoriaId},
+        const registro = await models.Articulo.update({codigo:req.body.codigo ,nombre:req.body.nombre,descripcion:req.body.descripcion,resumen:req.body.resumen,imagen:req.body.imagen, categoriaId:req.body.categoriaId},
             {
                where:{
                    id: req.body.id
